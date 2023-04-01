@@ -27,4 +27,22 @@ public class Book {
     public String toString() {
         return this.author + ", " + this.name + ", " + this.pages + " pages";
     }
+
+    @Override
+    public boolean equals(Object compared) {
+        if (this == compared) {
+            return true;
+        }
+
+        if (!(compared instanceof Book)) {
+            return false;
+        }
+
+        Book comparedBook = (Book) compared;
+
+        return (this.name.equals(comparedBook.name)
+                && this.author.equals(comparedBook.author)
+                && this.pages == comparedBook.pages);
+    }
+
 }
